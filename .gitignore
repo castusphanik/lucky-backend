@@ -1,0 +1,11 @@
+**/node_modules
+dist/
+temp/
+**/**/*.log
+config.js
+
+# **/package-lock.json
+
+# env variables
+.env*
+package-lock.json*

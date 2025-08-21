@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"]
+    },
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "useUnknownInCatchVariables": false,
+    "types": []
+  },
+  "ts-node": {
+    "swc": true,
+    "require": ["tsconfig-paths/register", "./config.ts"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "bin/**/*.ts",
+    "tests/**/*.ts",
+    "config.ts",
+    "tsconfig.json",
+    "eslint.config.ts",
+    "src/types/**/*.d.ts",
+    "src/prisma/seed.ts",
+    "exportEquipmentToExcel.ts",
+    "swagger.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}
