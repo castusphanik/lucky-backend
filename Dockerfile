@@ -29,4 +29,4 @@ COPY . .
 EXPOSE 9330
 
 # Start app with PM2
-CMD ["pm2-runtime", "./dist/bin/www.js"]
+CMD ["pm2-runtime", "/app/dist/bin/www.js"]
