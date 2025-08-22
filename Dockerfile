@@ -21,7 +21,7 @@ RUN npm install
 # Copy prisma schema and generate client
 COPY prisma ./prisma
 RUN npx prisma generate
-RUN npm start
+# RUN npm start
 
 # Copy application source
 COPY . .
@@ -30,4 +30,4 @@ COPY . .
 EXPOSE 9330
 
 # Start app with PM2
-CMD ["pm2-runtime", "/app/dist/bin/www.js"]
+CMD ["pm2-runtime", "./dist/bin/www.js"]
