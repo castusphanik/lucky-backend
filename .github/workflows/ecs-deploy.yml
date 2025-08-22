@@ -44,6 +44,36 @@ permissions:
   contents: read
 
 jobs:
+  fetch-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Fetch secrets from AWS Secrets Manager
+        id: fetch-secrets
+        run: |
+          SECRET_VALUE=$(aws secretsmanager get-secret-value \
+            --secret-id my-app-secrets \
+            --query SecretString \
+            --output text)
+
+          # Write JSON secrets into .env file
+          echo "$SECRET_VALUE" | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > .env
+          echo "✅ Secrets saved to .env"
+
+      - name: Upload .env artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: envfile
+          path: .env
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
