@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const asyncHandler_1 = require("../../utils/asyncHandler");
+const fleet_view_controller_1 = require("../controllers/fleet.view.controller");
+const router = (0, express_1.Router)();
+router.get("/getListView", (0, asyncHandler_1.asyncHandler)(fleet_view_controller_1.getListView));
+router.get("/getMapView", (0, asyncHandler_1.asyncHandler)(fleet_view_controller_1.getMapView));
+router.get("/getEquipmentDetails", (0, asyncHandler_1.asyncHandler)(fleet_view_controller_1.getEquipmentDetails));
+router.get("/getEquipmentCounts", (0, asyncHandler_1.asyncHandler)(fleet_view_controller_1.getEquipmentCounts));
+router.get("/downloadListView", (0, asyncHandler_1.asyncHandler)(fleet_view_controller_1.downloadListView));
+exports.default = router;

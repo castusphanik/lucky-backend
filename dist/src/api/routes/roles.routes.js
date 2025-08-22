@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const asyncHandler_1 = require("../../utils/asyncHandler");
+const roles_controller_1 = require("../controllers/roles.controller");
+const router = (0, express_1.Router)();
+router.post("/createRole", (0, asyncHandler_1.asyncHandler)(roles_controller_1.createUserRole));
+router.get("/customerRoles/:customer_id", (0, asyncHandler_1.asyncHandler)(roles_controller_1.getUserRolesByCustomerId));
+router.put("/editUserRole", (0, asyncHandler_1.asyncHandler)(roles_controller_1.editUserRole));
+router.get("/getUserRoleById/:role_id", (0, asyncHandler_1.asyncHandler)(roles_controller_1.getUserRoleById));
+router.delete("/:id/removeRolePermissions", (0, asyncHandler_1.asyncHandler)(roles_controller_1.removeRolePermissions));
+exports.default = router;
