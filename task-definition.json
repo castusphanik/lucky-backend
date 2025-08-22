@@ -90,6 +90,5 @@
     },
     "registeredAt": "2025-08-22T14:35:08.303Z",
     "registeredBy": "arn:aws:iam::593002333172:user/subash",
-    "enableFaultInjection": false,
     "tags": []
 }
