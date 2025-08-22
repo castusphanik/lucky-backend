@@ -7,7 +7,7 @@ on:
 env:
   AWS_REGION: ap-south-1
   ECR_REPOSITORY: ten-app-backend
-  ECS_SERVICE: ten-app-service
+  ECS_SERVICE: ten-app-service-new
   ECS_CLUSTER: ten-app-backend-cluster
   ECS_TASK_DEFINITION: task-definition.json
   CONTAINER_NAME: ten-app

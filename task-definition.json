@@ -1,11 +1,11 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:593002333172:task-definition/ten-app-backend:3",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:593002333172:task-definition/ten-app-backend-new:2",
     "containerDefinitions": [
         {
             "name": "ten-app",
             "image": "593002333172.dkr.ecr.ap-south-1.amazonaws.com/ten-app-backend:latest",
             "cpu": 1024,
-            "memory": 2048,
+            "memory": 3072,
             "memoryReservation": 1024,
             "portMappings": [
                 {
@@ -25,7 +25,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/ten-app-backend",
+                    "awslogs-group": "/ecs/ten-app-backend-new",
                     "awslogs-create-group": "true",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
@@ -35,11 +35,11 @@
             "systemControls": []
         }
     ],
-    "family": "ten-app-backend",
+    "family": "ten-app-backend-new",
     "taskRoleArn": "arn:aws:iam::593002333172:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::593002333172:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 3,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -82,13 +82,13 @@
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "2048",
-    "memory": "4096",
+    "cpu": "1024",
+    "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-08-22T06:28:34.639Z",
+    "registeredAt": "2025-08-22T14:35:08.303Z",
     "registeredBy": "arn:aws:iam::593002333172:user/subash",
     "enableFaultInjection": false,
     "tags": []
